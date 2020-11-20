@@ -56,7 +56,7 @@ public class ImageResource {
     }
 
     // Url paths are the new cool thing
-    @Path("/{documentId}.png")
+    @Path("{documentId}.png")
     @GET
     public Response getImage(@PathParam("documentId") String uuid) {
         // Get our image as a byte array from the DB
@@ -68,7 +68,7 @@ public class ImageResource {
         return Response.ok(image, "image/png").build();
     }
 
-    @Path("/{uuid}")
+    @Path("{uuid}")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public Response getDetails(@PathParam("uuid") String uuid) {
@@ -79,4 +79,5 @@ public class ImageResource {
         }
         return Response.ok(imageDetails).build();
     }
+
 }
